@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>{{config.siteName}}</title>
+</head>
+<body>
+  <h1>{{config.siteName}}</h1>
+  <p>Hello bug!</p>
+  <ul>
+    {{#each config.footerLinks}}
+      <li><a href="{{url}}">{{title}}</a></li>
+    {{/each}}
+  </ul>
+
+  <!-- console.logと同じ -->
+  {{log "Hi Bug :)"}}
+
+  <!-- 【YAMLデータの中身を確認する方法】 -->
+  <!-- withFirstを使ってfooterLinksの最初のtitleを表示する -->
+  {{#withFirst config.footerLinks}}
+  <!-- {debug debugしたいところの変数}  -->
+   {{debug title}}
+  {{/withFirst}}
+
+  <!-- withLastを使ってfooterLinksの最後のtitleを表示する -->
+  {{#withLast config.footerLinks}}
+   {{debug title}}
+  {{/withLast}}
+
+  <!-- 現在のコンテキスト（プログラムの実行に必要な各種情報）が参照できる値の一覧 -->
+  {{debug}}
+
+</body>
+</html>
